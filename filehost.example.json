@@ -6,8 +6,8 @@
         "video/*"
     ],
     "BasePath": "./files",
-    "Password": "xd",
-    "MasterPassword": "xdddddd",
-    "BaseURL": "https://i.nuuls.com/",
+    "Password": "dank_password",
+    "MasterPassword": "SpanixTeam",
+    "BaseURL": "https://i.spanix.xyz/",
     "NameLength": 5
 }

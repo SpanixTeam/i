@@ -12,10 +12,10 @@ import (
 func main() {
 	log.SetOutput(os.Stdout)
 	var (
-		dbPath = flag.String("db", "database.json", "path to database.json file")
+		dbPath = flag.String("db", "db/database.json", "path to database.json file")
 		// filePath   = flag.String("files", ".", "path to files")
-		maxClicks  = flag.Int("max-clicks", 10, "dont delete files with more than max-clicks clicks")
-		maxAgeDays = flag.Int("max-age-days", 365, "dont delete files younger than max-age-days")
+		maxClicks  = flag.Int("max-clicks", 10000, "dont delete files with more than max-clicks clicks")
+		maxAgeDays = flag.Int("max-age-days", 1, "dont delete files younger than max-age-days")
 		dryRun     = flag.Bool("dry-run", false, "dry run")
 	)
 

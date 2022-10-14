@@ -4,62 +4,50 @@
 <head>
     <script type="text/javascript" class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script type="text/javascript" class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://cdn.spanix.xyz/icons/i.ico">
+    <link rel="stylesheet" type="text/css" href="./main.css" />
     <meta charset="utf-8">
-    <title>upload</title>
-    <script type="text/javascript">
-        function upload() {
-            var file = $('#testFile').prop('files')[0];
-            var filepath = $('#testFile').prop("files")[0]['name'];
-            console.log(file);
-            var formData = new FormData();
-            formData.append("file", file);
-            var xhr = new XMLHttpRequest();
-            if (xhr.upload) {
-                xhr.upload.addEventListener('progress', function(event) {
-                    var percent = 0;
-                    var position = event.loaded || event.position;
-                    var total = event.total;
-                    if (event.lengthComputable) {
-                        percent = Math.ceil(position / total * 100);
-                    }
-                    //update progressbar
-                    $("#progress").html(percent + "%");
-                    console.log(percent);
-                }, true);
-            }
-            xhr.onload = function() {
-                var link = document.createElement("a")
-                link.href = xhr.response 
-                link.innerText = xhr.response
-                document.getElementById("link").appendChild(link);
-            }
-            xhr.onreadystatechange = function(ev) {
-                if (xhr.readyState === 4) {
-                    if (xhr.status !== 200) {
-                        console.log(ev)
-                        document.getElementById("link").innerText = "error uploading file"
-                    }
-                }
-            }
-            try {
-                xhr.open("POST", "{{.BaseURL}}upload?password={{.Key}}", true);
-                xhr.send(formData);
-            } catch(err) {
-                console.log("XD", err)
-                document.getElementById("link").innerText += err 
-            }
-
-        };
-    </script>
-    <style type="text/css">
-    </style>
+    <title>Spanixfiles</title>
 </head>
 
 <body>
-    <input id="testFile" type="file">
-    <input type="button" id="uploadButton" value="Upload" onclick="upload()">
-    <div id="progress"></div>
-    <div id="link"></div>
+    <div id="dropZone"></div>
+    <img src="https://cdn.spanix.xyz/icons/i.ico" draggable="false" title="Spanixfiles" alt="Spanixfiles" class="nn" style="height:10em;">
+    <div id="shadowBox">
+        <p class="rainbow rainbow_text_animated">Máximo 100MB | Se borra luego de 24h</tr>
+    </div>
+    <p><a style="color: azure;" href="https://cdn.spanix.xyz/resources/Chatterino.png" target="_BLANK">Chatterino</a> | 
+        <a style="color: azure;" href="https://cdn.spanix.xyz/resources/DankChat.png" target="_BLANK">DankChat</a> | 
+        <a style="color: azure;" href="https://cdn.spanix.xyz/resources/Sharex.png" target="_BLANK">Sharex</a></p>
+    <div class="center">
+
+        <label class="btn-1" for="testFile">Elegir archivo</label>
+
+        <input type="button" id="uploadButton" value="Upload" onclick="upload()" hidden>
+        <label class="btn-2" for="uploadButton">Subir archivo</label>
+
+        <p></p>
+        <div style="color: azure;" id="progress"></div>
+        <p></p>
+        <div style="color: azure;" class="link" id="link"></div>
+
+        <hr class="dashed">
+
+        <p></p>
+        <form>
+            <input type="file" accept="image/*,audio/*,video/*" id="testFile" hidden />
+            <h3 id="fileTitle"></h3>
+            <img class ="filePreview" draggable="false" id="imgP" title="" src="" hidden />
+            <video class ="filePreview" controls id="videoP" src="" hidden >
+                <h2>Tu navegador no soporta el reproductor de video.</h2>
+            </video>
+            <audio class ="filePreview" controls id="audioP" src="" hidden >
+                <h2>Tu navegador no soporta el reproductor de audio.</h2>
+            <audio/>
+        </form>
+        <p></p>
+    </div>
+    <script type="text/javascript" src="./index.js"></script>
 </body>
 
 </html>

@@ -87,7 +87,7 @@ func main() {
 	r.Use(middleware.Logger)
 	r.Handle("/*", filehost.New(conf))
 
-	log.Fatal(http.ListenAndServe(":7494", r))
+	log.Fatal(http.ListenAndServe(":40002", r))
 }
 
 type config struct {

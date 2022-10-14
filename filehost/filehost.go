@@ -140,7 +140,7 @@ func upload(w http.ResponseWriter, r *http.Request) {
 				if cfg.NewFileName != nil {
 					name = cfg.NewFileName()
 				} else {
-					name = RandString(5)
+					name = RandString(8)
 				}
 			}
 			l = l.WithField("file", name)

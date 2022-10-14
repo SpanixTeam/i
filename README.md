@@ -1,20 +1,19 @@
 # filehost
 
-[![Build Status](https://api.travis-ci.org/nuuls/filehost.svg)](https://travis-ci.org/nuuls/filehost)
+[![Build Status](https://api.travis-ci.org/SpanixTeam/i.svg)](https://travis-ci.org/SpanixTeam/i)
 
-## how to use:
+## cómo usar:
 
 1. cd standalone
-2. modify config and rename to filehost.json
-3. create a folder called files
-4. go get
-5. go build
-6. ./standalone or standalone.exe
+2. Modifica la configuración y renómbrala como filehost.json
+3. go get
+4. go build
+5. ./standalone o standalone.exe
 
-## set up sharex:
-1. Destinations > Destination settings
-2. add an uploader
-3. fill in your stuff like this ![](https://i.nuuls.com/KPim.png)
-4. click Update
-5. Destinations > image uploader > custom image uploader
-6. Destinations > file uploader > custom file uploader
+## Configuración con Sharex:
+1. Destinaciones > Custom uploader settings... 
+2. New
+3. Rellena los espacios con algo como esto ![](https://i.imgur.com/fEeuhYM.png)
+4. Puedes testear para comprobar que esté todo bien
+5. Destinaciones > Cargador de imágenes > Cargador de imágenes personalizados
+6. Destinaciones > Cargador de archivos > Cargador de archivos personalizados
